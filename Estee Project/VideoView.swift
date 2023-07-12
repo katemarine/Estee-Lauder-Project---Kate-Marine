@@ -40,27 +40,40 @@ struct VideoView: View {
                             .foregroundColor(Color.white)
                         
                     }
-                    .offset(x:0, y: 260)
+                    .offset(x:0, y: 350)
                     
                     VideoPlayer(player: avPlayer)
                         .frame(width: 320.0, height: 180.0)
-                        .offset(x: 0, y: 270)
+                        .offset(x: 0, y: 364)
                         .onAppear() {
                                         avPlayer.play()
                        }
                     VStack {
-                        Text("___________________")
+                        Text("_______________________")
+                            .font(.body)
+                            .foregroundColor(Color.white)
+                            .offset(x: 0, y:-277)
+                        Text("NUTRITIOUS")
+                            .font(.system(size: 38))
+                            .font(.largeTitle)
+                            .fontWeight(.heavy)
+                            .foregroundColor(Color.white)
+
+                            .dynamicTypeSize(/*@START_MENU_TOKEN@*/.xxLarge/*@END_MENU_TOKEN@*/)
+                            .offset(x:0, y: -277)
+                        
+                        Text("__________________")
                             .font(.largeTitle)
                             .foregroundColor(Color.white)
-                            .offset(x: 0, y:-120)
+                            .offset(x: 0, y:-114)
                         Image("EsteeLauderLogo")
                             .resizable(capInsets: EdgeInsets(top: -5.0, leading: 0.0, bottom: -50.0, trailing: 0.0))
                             .frame(width: 230.0, height: 30.0)
-                            .offset(x:0, y:-395)
-                        Text("___________________")
+                            .offset(x:0, y:-430)
+                        Text("__________________")
                             .font(.largeTitle)
                             .foregroundColor(Color.white)
-                            .offset(x: 0, y:-35)
+                            .offset(x: 0, y:-30)
                         HStack {
                            
                             Text("FROM")
@@ -85,7 +98,7 @@ struct VideoView: View {
 
 
                     }
-                    .offset(x: 0, y: 150)
+                    .offset(x: 0, y: 180)
 
                     
                 }
