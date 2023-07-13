@@ -9,20 +9,20 @@ import SwiftUI
 
 struct SecondView: View {
     
+    // string variables that contain the text that buttons 1, 2, and 3 should display (changes depending on whether or not the button is clicked)
     @State private var info1 = "Click me"
     @State private var info2 = "Click me"
     @State private var info3 = "Click me"
     
+    // boolean variables that determine whether or not each button has been clicked
     @State private var showDetails1 = false
     @State private var showDetails2 = false
     @State private var showDetails3 = false
-  //  @State private var showClickMe = true
-//    if showDetails {
-//        info = "close"
-//    }
+
     
     var body: some View {
         NavigationStack {
+            //ZStack to create the background image
             ZStack {
                 Image("estee 36b")
                     .resizable(resizingMode: .stretch)
@@ -39,11 +39,13 @@ struct SecondView: View {
                             .stroke(Color.white, lineWidth: 3))
                     .foregroundColor(Color.white)
                     .offset(x: 0, y: -300)
-// BUTTON GROUP 1
+
+            
+        // BUTTON GROUP 1
                 VStack {
-
-
+                // if statement to determine whether button 1 has been clicked (ie whether showDetails is true or false)
                     if !showDetails1{
+                        // if not clicked, the button displays a circle icon and line icon
                         Image(systemName: "livephoto").foregroundColor(.white)
                             .padding(0.0)
                             .font(.title)
@@ -55,9 +57,11 @@ struct SecondView: View {
                             .offset(x: -85, y: -135)
                     }
                         
-                    
+                   // creates button and its action when clicked
                     Button(info1) {
+                        // when clicked, the boolean showDetails changes
                         showDetails1.toggle()
+                        //displays "x" symbol otherwise goes back to click me text
                         if showDetails1{
                             info1 = "x"
                         }
@@ -66,6 +70,7 @@ struct SecondView: View {
                         }
                         
                     }
+                    //formats the button appearance
                     .fontWeight(.bold)
                     .font(.body)
                     .padding()
@@ -77,7 +82,8 @@ struct SecondView: View {
                         RoundedRectangle(cornerRadius: 40)
                             .stroke(Color.white, lineWidth: 3))
                     .offset(x: -20, y: -160)
-
+                        
+                    // if boolean showDetails1 is true, then will display info text and icon
                             if showDetails1 {
                                 HStack {
                                     Text("Pore minimizing \nnutrients!")
@@ -97,21 +103,17 @@ struct SecondView: View {
                                         .padding(0.0)
                                         .font(.system(size: 24.0))
                                         .offset(x: -145, y: -146)
-                                
-                                    
-                                    
+                                            
                                 }
-                                
-                                
-                                }
-
-                    
+                            }
+       
                 }
     
-// BUTTON GROUP 2
+   // BUTTON GROUP 2
                 VStack {
-
+                    // if statement to determine whether button 2 has been clicked (ie whether showDetails2 is true or false)
                     if !showDetails2{
+                        // if not clicked, the button displays a circle icon and line icon
                         Image(systemName: "livephoto").foregroundColor(.white)
                             .padding(0.0)
                             .font(.title)
@@ -122,12 +124,12 @@ struct SecondView: View {
                             .font(.largeTitle)
                             .offset(x: -50, y: 23)
                     }
-
-                     
-                        
-                    
+   
+                    // creates button and its action when clicked
                     Button(info2) {
+                        // when clicked, boolean showDetails2 is switched
                         showDetails2.toggle()
+                        // if showDetails2 is true (ie it's displaying the information) then also shows x icon
                         if showDetails2{
                             info2 = "x"
                         }
@@ -136,6 +138,7 @@ struct SecondView: View {
                         }
                         
                     }
+                    // formats the button's appearance
                     .fontWeight(.bold)
                     .font(.body)
                     .padding()
@@ -148,6 +151,7 @@ struct SecondView: View {
                             .stroke(Color.white, lineWidth: 3))
                     .offset(x: 20, y: -5)
 
+                    // if boolean showDetails2 is true, then will display corresponding info text and icon
                             if showDetails2 {
                                
                                 Text("Red algae \nferment!")
@@ -178,7 +182,7 @@ struct SecondView: View {
 // BUTTON GROUP 3
                 VStack {
 
-
+                    // if statement to determine whether button 3 has been clicked (ie whether showDetails3 is true or false)
                     if !showDetails3{
                         Image(systemName: "minus").foregroundColor(.white)
                             .padding(0.0)
@@ -241,29 +245,7 @@ struct SecondView: View {
                 
             
             }
-// Custom back button
-            
-//            .toolbar {
-//                ToolbarItemGroup(placement: .navigation){
-//                    NavigationLink(destination: ContentView()) {
-//                        Image(systemName: "arrow.backward.circle")
-//                            .foregroundColor(.white)
-//                            .font(.system(size: 25.0))
-//                        Text("Back")
-//                            .font(.title3)
-//                            .fontWeight(.light)
-//                            .foregroundColor(Color.white)
-//                            .lineLimit(nil)
-//                            .dynamicTypeSize(/*@START_MENU_TOKEN@*/.xxxLarge/*@END_MENU_TOKEN@*/)
-//
-//                    }
-//                    }
-//                }
-            
-            
-//                .navigationTitle("Back")
-//                .navigationBarTitleDisplayMode(.inline)
-//                .navigationBarHidden(false)
+
             }
             
         }

@@ -13,12 +13,15 @@ struct VideoView: View {
     
     var body: some View {
         NavigationView {
+            // Zstack to create background image
             ZStack {
                 Image("pink3")
                     .resizable(resizingMode: .stretch)
                     .ignoresSafeArea()
                 VStack{
+                    // Vstack to contain the top section of text
                     VStack{
+                        // Hstack to organize the top line of text
                         HStack(spacing: 17.0) {
                             Text("A")
                                 .font(.largeTitle)
@@ -42,12 +45,16 @@ struct VideoView: View {
                     }
                     .offset(x:0, y: 350)
                     
+                    // creates the video and formats it to correct frame size
                     VideoPlayer(player: avPlayer)
                         .frame(width: 320.0, height: 180.0)
                         .offset(x: 0, y: 364)
+                    // lets video play automatically when open the view
                         .onAppear() {
                                         avPlayer.play()
                        }
+
+                // Vstack to contain the top logo and nutritious brand text
                     VStack {
                         Text("_______________________")
                             .font(.body)
@@ -65,7 +72,7 @@ struct VideoView: View {
                         Text("__________________")
                             .font(.largeTitle)
                             .foregroundColor(Color.white)
-                            .offset(x: 0, y:-114)
+                            .offset(x: 0, y:-112)
                         Image("EsteeLauderLogo")
                             .resizable(capInsets: EdgeInsets(top: -5.0, leading: 0.0, bottom: -50.0, trailing: 0.0))
                             .frame(width: 230.0, height: 30.0)
@@ -83,7 +90,7 @@ struct VideoView: View {
                             Text("                                                  ")
                         }
                         
-        
+                        // Hstack containing botton line of text
                         HStack {
                             Text("NATURAL")
                                 .font(.largeTitle)
@@ -104,8 +111,11 @@ struct VideoView: View {
                 }
                 .offset(x: 0, y: -220)
             }
+            
+            // creates navigation toolbar
             .toolbar {
                 ToolbarItemGroup(placement: .status){
+                    // navigation link with the text "explore ingredients" that navigates to SecondView() when clicked
                     NavigationLink(destination: SecondView()) {
                         Text("Explore ingredients")
                             .font(.title3)
@@ -113,6 +123,7 @@ struct VideoView: View {
                             .foregroundColor(Color.white)
                             .lineLimit(nil)
                             .dynamicTypeSize(/*@START_MENU_TOKEN@*/.xxxLarge/*@END_MENU_TOKEN@*/)
+                        // image storing arrow icon
                         Image(systemName: "arrow.forward.circle")
                             .foregroundColor(.white)
                             .font(.system(size: 25.0))
